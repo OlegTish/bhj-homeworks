@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = document.querySelectorAll(".product");
   const cart = document.querySelector(".cart__products");
 
+  const clearCart = () => {
+    localStorage.removeItem("cart");
+    cart.innerHTML = "";
+    toggleCartVisibility();
+  };
+
   const loadCart = () => {
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     cartItems.forEach(({ id, src, count }) => {
@@ -108,5 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   };
 
+  clearCart();
+
   loadCart();
 });
+
