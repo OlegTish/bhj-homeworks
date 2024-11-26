@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector(".tasks__form");
-  const input = document.querySelector(".tasks__input");
-  const tasksList = document.querySelector(".tasks__list");
+  const form = document.querySelector(".tasks__control");
+  const input = document.querySelector("#task__input");
+  const tasksList = document.querySelector("#tasks__list");
 
   const loadTasks = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     tasksList.insertAdjacentHTML("afterbegin", taskHTML);
 
-    // Добавляем обработчик для удаления задачи
     const taskRemove = tasksList.querySelector(".task__remove");
     taskRemove.addEventListener("click", (event) => {
       event.preventDefault();
