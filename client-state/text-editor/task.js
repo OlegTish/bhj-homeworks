@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const editor = document.getElementById("editor");
-  
-    const savedText = localStorage.getItem("editorContent");
-    if (savedText) {
-      editor.value = savedText;
-    }
-  
-    editor.addEventListener("input", () => {
-      localStorage.setItem("editorContent", editor.value);
-    });
+  const editor = document.getElementById("editor");
+
+  editor.value = localStorage.getItem("editorContent") || "";
+
+  editor.addEventListener("input", () => {
+    localStorage.setItem("editorContent", editor.value);
   });
+});
